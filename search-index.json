@@ -1,0 +1,37 @@
+[
+  {
+    "id": "overview",
+    "title": "✨ Overview",
+    "body": "Magic Node is a powerful plugin for Unreal Engine that allows developers to write C++-like code directly within Blueprint nodes . It provides a scriptable node system where you can dynamically write, compile, and run custom logic inline with the Blueprint visual scripting system. 🔹 Script on the Fly 🔹 C++-Styled Syntax 🔹 Dynamic Runtime Execution 🔹 Editor Integration Ideal for prototyping or fine-tuned logic without leaving the Blueprint Editor."
+  },
+  {
+    "id": "features",
+    "title": "🧱 Features",
+    "body": "✅ Scriptable Blueprint Nodes Create nodes that accept inline source code. Support for logic encapsulation in runtime-compiled nodes. Dynamic pin generation based on script function signature. 🧠 Runtime Node Object UMagicNode is the base object that acts like a mini-script component at runtime:\n- Lifecycle methods: Awake() , Start() , Update() , Stop() - Access to UWorld context\n- Debugging support\n- Tickable logic via timers 🧩 Blueprint-Embedded Scripts UMagicNodeScript stores source code and metadata:\n- Custom node colors\n- Script locking for editor safety\n- Inherits from selected UMagicNode class 🧮 Visual Node Integration UKMGC_MagicNode is the K2 node implementation:\n- Handles UI representation via custom Slate widget\n- Compiler integration with Blueprint\n- Dynamic UI and pin updates\n- Tooltip, icon, and category configuration"
+  },
+  {
+    "id": "usage",
+    "title": "🔧 Usage",
+    "body": "Adding a Magic Node Open your Blueprint Editor. Right-click → Search for Magic Node Script . Drag it into the graph and double-click to open the script editor. Writing a Script Code directly inside the editor window. Use syntax similar to C++ for logic. Input/output pins will automatically generate based on your function parameters. Lifecycle Functions Override the following virtual functions in your script: void Awake();     // Called once when node is created\nvoid Start();     // Called before first Update\nvoid Update(float DeltaTime); // Called every tick\nvoid Stop();      // Called when node is finished"
+  },
+  {
+    "id": "developer-api",
+    "title": "🛠️ Developer API",
+    "body": "UMagicNode void Finish() – Ends the node's execution. void RegisterWorld(UWorld* World) – Manually set the node’s world context. UMagicNodeScript UClass* GetRuntimeScriptClass() – Returns the class to spawn at runtime. bool RefreshRuntimeScriptClass() – Refreshes the class from source code. UKMGC_MagicNode void CompileScript() – Compiles the source code. void ReloadRuntimeScript() – Reloads the runtime object. FText GetScriptText() – Gets raw script string. UEdGraphPin* GetExecPin() / GetThenPin() – Get node execution pins."
+  },
+  {
+    "id": "editor-integration",
+    "title": "🎨 Editor Integration",
+    "body": "Custom Slate widget for node visuals ( SKMGC_MagicNodeWidget ) Pin handling and dynamic script parsing Real-time source code editor Runtime compilation and validation"
+  },
+  {
+    "id": "dependencies",
+    "title": "🧩 Dependencies",
+    "body": "This plugin utilizes several Unreal Engine modules:\n- Slate , SlateCore , KismetSystemLibrary - UGameplayStatics , TimerManager It also uses:\n- Custom parser: IKMGC_ScriptParser - Code representation: FMGC_SourceCode - Compiler feedback: EMGC_CompilerResult"
+  },
+  {
+    "id": "screenshot",
+    "title": "📸 Screenshot",
+    "body": ""
+  }
+]
